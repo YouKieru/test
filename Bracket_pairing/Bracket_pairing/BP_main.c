@@ -1,10 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-//ÅĞ¶ÏÀ¨ºÅÊÇ·ñÅä¶Ô£¬³É¶Ôtrue ²»³É¶Ôfalse£¬Ê¹ÓÃÁËÕ»
+//åˆ¤æ–­æ‹¬å·æ˜¯å¦é…å¯¹ï¼Œæˆå¯¹true ä¸æˆå¯¹falseï¼Œä½¿ç”¨äº†æ ˆ
 #include <string.h>
 #include <stdio.h>
 #include <stdbool.h>
 #define Maxsize 50
 
+//å®šä¹‰æ ˆ
 typedef struct sq {
 	char a[Maxsize];
 	int top;
@@ -12,27 +13,27 @@ typedef struct sq {
 
 void Initstack(a_sqstack* Q) {
 	Q->top = -1;
-}
+}//åˆå§‹åŒ–æ ˆ
 
 bool Enstack(a_sqstack* Q, char x) {
 	if (Q->top == Maxsize - 1)
 		return false;
 	Q->a[++Q->top] = x;
 	return true;
-}
+}//å…¥æ ˆ
 
 int Destack(a_sqstack* Q, char* x) {
 	if (Q->top == -1)
 		return 0;
 	*x = Q->a[Q->top--];
 	return 1;
-}
+}//å‡ºæ ˆ
 
 int main()
 {
 	a_sqstack arr;
 	Initstack(&arr);
-	char sym[] = "(uiui)[uu][i(o)]";//ÔÚÕâÀïÊäÈëÅĞ¶Ï×Ö·û´®
+	char sym[] = "(uiui)[uu][i(o)]";//åœ¨è¿™é‡Œè¾“å…¥åˆ¤æ–­å­—ç¬¦ä¸²
 	int i = 0;
 	while (i != strlen(sym)) {
 		if (sym[i] == '(' || sym[i] == '[')
